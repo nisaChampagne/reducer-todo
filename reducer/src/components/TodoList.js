@@ -1,9 +1,16 @@
-import React from 'react';
+import React from "react";
 
-export default function TodoList(){
-    return(
-        <div>
-            <h1>AYE</h1>
-        </div>
-    );
+import Item from "./Item";
+
+export default function TodoList(props) {
+  return (
+    <div>
+      {props.todo.map(item => (
+        <Item key={item.id} item={item} toggleItem={props.toggleItem} />
+      ))}
+      <button className="clear-btn" onClick={props.clearCompleted}>
+        Clear Completed
+      </button>
+    </div>
+  );
 }
